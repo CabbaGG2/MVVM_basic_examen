@@ -71,22 +71,25 @@ class MyViewModel(): ViewModel() {
 
     /**
      * Corutina que lanza estados auxiliares
+     * Se aplicaron mejoras en la lógica de los estados euxiliares
+     * para que al pasar entre estados utilice una función Lambda propia de cada estado.
+     * @param msg: mensaje que recibe la función
      */
     fun estadosAuxiliares(msg: String = "") {
         viewModelScope.launch {
             // inicializamos estado auxiliar
             // los recorremos
             var estadoAux = EstadosAuxiliares.AUX1
-            Log.d(TAG_LOG, "estado (corutina): ${estadoAux}")
-            Log.d(TAG_LOG, "mensaje (corutina): ${msg}")
+            Log.d(TAG_LOG, "estado (corutina): ${estadoAux.unit(msg)}")
+            //Log.d(TAG_LOG, "mensaje (corutina): ${msg}")
             delay(1500)
             estadoAux = EstadosAuxiliares.AUX2
-            Log.d(TAG_LOG, "estado (corutina): ${estadoAux}")
-            Log.d(TAG_LOG, "mensaje (corutina): ${msg}")
+            Log.d(TAG_LOG, "estado (corutina): ${estadoAux.unit(msg)}")
+            //Log.d(TAG_LOG, "mensaje (corutina): ${msg}")
             delay(1500)
             estadoAux = EstadosAuxiliares.AUX3
-            Log.d(TAG_LOG, "estado (corutina): ${estadoAux}")
-            Log.d(TAG_LOG, "mensaje (corutina): ${msg}")
+            Log.d(TAG_LOG, "estado (corutina): ${estadoAux.unit(msg)}")
+            //Log.d(TAG_LOG, "mensaje (corutina): ${msg}")
             delay(1500)
         }
     }
