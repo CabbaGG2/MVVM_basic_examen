@@ -1,12 +1,15 @@
 package com.dam.mvvm_basic
 
 import androidx.compose.ui.graphics.Color
+import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
  * Clase para almacenar los datos del juego
+ * aquí guardaremos la variable cuentaAtras
  */
 object Datos {
     var numero = 0
+    val cuentaAtras = MutableStateFlow(5)
 }
 
 /**
@@ -39,10 +42,12 @@ enum class Estados(val start_activo: Boolean, val boton_activo: Boolean) {
 
 /**
  * Estados auxiliares para corutinas en el ViewModel
- * @param txt: String nombre del estado
+ * @param txt: String que pasa un texto representativo del estado auxiliar
  */
 enum class EstadosAuxiliares(val txt: String) {
-    AUX1(txt = "aux1"),
-    AUX2(txt = "aux2"),
-    AUX3(txt = "aux3"),
+    AUX1(txt = "Inicio - aux1"),
+    AUX2(txt = "Contando - aux2"),
+    AUX3(txt = "Contando. - aux3"),
+    AUX4(txt = "Contando.. - aux4"),
+    AUX5(txt = "Fin - aux5")
 }
